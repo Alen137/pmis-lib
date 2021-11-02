@@ -1,0 +1,48 @@
+plugins {
+	id 'java-library'
+	id 'org.springframework.boot' version "2.4.1"
+	id 'io.spring.dependency-management' version "1.0.10.RELEASE"
+	id 'maven-publish'
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+subprojects {
+
+	apply plugin: 'org.springframework.boot'
+	apply plugin: 'io.spring.dependency-management'
+	apply plugin: 'java-library'
+	apply plugin: 'java'
+
+	springBoot {
+		buildInfo()
+	}
+
+
+	repositories {
+		mavenCentral()
+	}
+
+	ext {
+		set('springCloudVersion', "2020.0.0")
+	}
+	dependencyManagement {
+		imports {
+			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+		}
+	}
+	test {
+		useJUnitPlatform()
+	}
+}
+
+bootJar {
+	enabled = false
+}
+
+jar{
+	enabled = true
+}

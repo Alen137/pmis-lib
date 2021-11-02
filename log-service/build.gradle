@@ -1,0 +1,27 @@
+
+group = 'pmis.library'
+version = '1.1.2'
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    api project(":cryptoutils")
+
+}
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+    manifest{
+        attributes ("version" : "1.4.0")
+    }
+}

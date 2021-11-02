@@ -1,0 +1,21 @@
+
+group = 'pmis.library'
+version = '1.1.2'
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+
+bootJar {
+    enabled = false
+}
+
+jar {
+    enabled = true
+    manifest{
+        attributes ("version" : "1.4.0")
+    }
+}

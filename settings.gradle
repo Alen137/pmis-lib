@@ -1,0 +1,6 @@
+rootProject.name = 'pmisLibs'
+
+include 'audit'
+include 'log-service'
+include 'cryptoutils'
+
